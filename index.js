@@ -62,4 +62,5 @@ client.on("interactionCreate", async interaction => {
 
 // === Pornire ===
 client.login(process.env.TOKEN); // TOKEN se pune în Secrets/Replit env
-app.listen(3000, () => console.log("Bot online + server web activ!"));
+app.listen(5000, () => console.log("Bot online + server web activ!"));
+
