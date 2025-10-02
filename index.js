@@ -134,9 +134,8 @@ client.on("interactionCreate", async (interaction) => {
   if (interaction.customId === "acceptat") {
     const approved = buildApprovedEmbed(member.user, payload);
     await interaction.update({
-      content: `✅ Cererea candidatului **${payload.nume}** a fost **ACCEPTATĂ** de <@${member.id}>.`,
       embeds: [approved],
-      components: []
+      components: []   // scoatem butoanele după ce se apasă
     });
     return;
   }
@@ -144,7 +143,6 @@ client.on("interactionCreate", async (interaction) => {
   if (interaction.customId === "respins") {
     const rejected = buildRejectedEmbed(member.user, payload);
     await interaction.update({
-      content: `❌ Cererea candidatului **${payload.nume}** a fost **RESPINSĂ** de <@${member.id}>.`,
       embeds: [rejected],
       components: []
     });
@@ -156,4 +154,5 @@ client.on("interactionCreate", async (interaction) => {
 // --- Start ---
 client.login(process.env.TOKEN);
 app.listen(5000, () => console.log("Bot online + server web activ pe port 5000!"));
+
 
