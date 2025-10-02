@@ -40,7 +40,7 @@ function buildApplicationEmbed({ nume, telefon, discord, id, mentiuni }) {
 function buildApprovedEmbed(byUser, payload) {
   return new EmbedBuilder()
     .setColor(0x22c55e) // verde
-    .setTitle(`Aprobat de ${byUser.displayName || byUser.username}`)
+    .setTitle(`✅ Solicitarea a fost aprobată de ${byUser.displayName || byUser.username}`)
     .setThumbnail(byUser.displayAvatarURL({ extension: "png", size: 256 }))
     .addFields(
       { name: "👤 Nume",    value: fieldValue(payload.nume), inline: false },
@@ -55,7 +55,7 @@ function buildApprovedEmbed(byUser, payload) {
 function buildRejectedEmbed(byUser, payload) {
   return new EmbedBuilder()
     .setColor(0xef4444) // roșu
-    .setTitle(`Respins de ${byUser.displayName || byUser.username}`)
+    .setTitle(`❌ Solicitarea a fost respinsă de ${byUser.displayName || byUser.username}`)
     .setThumbnail(byUser.displayAvatarURL({ extension: "png", size: 256 }))
     .addFields(
       { name: "👤 Nume",    value: fieldValue(payload.nume), inline: false },
@@ -154,5 +154,6 @@ client.on("interactionCreate", async (interaction) => {
 // --- Start ---
 client.login(process.env.TOKEN);
 app.listen(5000, () => console.log("Bot online + server web activ pe port 5000!"));
+
 
 
